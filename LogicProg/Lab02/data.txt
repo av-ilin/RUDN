@@ -1,0 +1,35 @@
+country(0, "Germany", europe, 	82175684).
+country(1, "France", 	europe, 66991000).
+country(2, "Italy", europe, 60795612).
+country(3, "China", asia, 1380083000).
+country(4, "India", asia, 1313204000).
+country(5, "USA", america, 325850000).
+country(6, "Brazil", america, 205737996).
+country(7, "Australia",australia, 24067700).
+country(8, "New Zealand", australia, 4596700).
+country(9, "Egypt", africa, 88487396).
+country(10, "South Africa", africa, 54956900).
+
+capital(0, "Berlin",3664088).
+capital(1, "Paris",2240676).
+capital(2, "Rome",2870515).
+capital(3, "Beijing",21705033).
+capital(4, "New Delhi",9879234).
+capital(5, "Washington",601765).
+capital(6, "Brasilia",2852395).
+capital(7, "Canberra",410262).
+capital(8, "Wellington", 360677).
+capital(9, "Cairo", 8105079).
+capital(10, "Pretoria", 1815904).
+
+represents(0, 0).
+represents(1, 1).
+represents(2, 2).
+represents(3, 3).
+represents(4, 4).
+represents(5, 5).
+represents(6, 6).
+represents(7, 7).
+represents(8, 8).
+represents(9, 9).
+represents(10, 10).
