@@ -123,12 +123,16 @@ class Figure3D:
         return visible
 
     def visible_alg2(self):
-        barycenter = self.vertices.sum(axis=0) / self.vertices.shape[0]
+        # barycenter = self.vertices.sum(axis=0) / self.vertices.shape[0]
+        vertices = self.view_axis(self.world())
+        barycenter = vertices.sum(axis=0) / vertices.shape[0]
         camera_center = self.camera_center
         visible = np.full(self.n_faces, False)
         for i, face in enumerate(self.faces):
-            face_center = self.vertices[face[:3]].sum(axis=0) / 3
-            x, y, z = self.vertices[face[:3]]
+            # face_center = self.vertices[face[:3]].sum(axis=0) / 3
+            # x, y, z = self.vertices[face[:3]]
+            face_center = vertices[face[:3]].sum(axis=0) / 3
+            x, y, z = vertices[face[:3]]
             A, B, C = np.cross((x - y), (x - z))
             D = x[0] * y[2] * z[1] + x[1] * y[0] * z[2] + x[2] * y[1] * z[0] - \
                 x[0] * y[1] * z[2] - x[1] * y[2] * z[0] - x[2] * y[0] * z[1]
