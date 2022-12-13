@@ -63,7 +63,7 @@ class Figure3D:
         if self.algorithm:
             visible = self.visible_alg1(vertices)
         else:
-            visible = self.visible_alg2()
+            visible = self.visible_alg2(vertices)
         vertices = self.clip(vertices)
         self.draw(scr, vertices, visible)
 
@@ -122,11 +122,11 @@ class Figure3D:
             visible[i] = h < 0
         return visible
 
-    def visible_alg2(self):
+    def visible_alg2(self, vertices):
         # barycenter = self.vertices.sum(axis=0) / self.vertices.shape[0]
-        vertices = self.view_axis(self.world())
+        # vertices = self.view_axis(self.world())
+        # camera_center = self.camera_center
         barycenter = vertices.sum(axis=0) / vertices.shape[0]
-        camera_center = self.camera_center
         visible = np.full(self.n_faces, False)
         for i, face in enumerate(self.faces):
             # face_center = self.vertices[face[:3]].sum(axis=0) / 3
@@ -138,7 +138,7 @@ class Figure3D:
                 x[0] * y[1] * z[2] - x[1] * y[2] * z[0] - x[2] * y[0] * z[1]
             e = np.array([A, B, C])
             e *= np.sign((e * barycenter).sum() + D)
-            d = face_center - camera_center
+            d = face_center
             gamma = np.dot(d, e) / np.linalg.norm(d) / np.linalg.norm(e)
             visible[i] = 0 < gamma < 1
         return visible
